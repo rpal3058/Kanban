@@ -1,0 +1,23 @@
+type kanbanBoard @entity {  
+  id: ID!   
+  creator: Bytes!
+  instance: Bytes!
+  task: [task!] @derivedFrom(field: "boardID")
+  pm: Bytes!
+  title: String!
+  details: String 
+  funds: BigInt
+  # funder: Bytes
+}
+
+type task @entity {
+  id: ID!  
+  boardID: kanbanBoard!   
+  taskFunds: BigInt
+  taskTitle: String!
+  taskDetails: String
+  taskAssigned: Bytes
+  taskRaider: Bytes
+  taskReviewed: Bytes
+  taskClosed: Boolean
+}

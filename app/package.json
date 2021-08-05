@@ -1,0 +1,31 @@
+{
+  "name": "app_1",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/node": "^15.12.4",
+    "@walletconnect/web3-provider": "^1.4.1",
+    "ethers": "^5.3.1",
+    "graphql": "^15.5.1",
+    "graphql-request": "^3.4.0",
+    "next": "11.0.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "unstated-next": "^1.1.0",
+    "web3modal": "^1.9.3"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.11",
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.5",
+    "tailwindcss": "^2.2.2",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.4"
+  }
+}
