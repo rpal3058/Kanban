@@ -169,6 +169,15 @@ export class task extends Entity {
     this.set("boardID", Value.fromString(value));
   }
 
+  get taskID(): BigInt {
+    let value = this.get("taskID");
+    return value.toBigInt();
+  }
+
+  set taskID(value: BigInt) {
+    this.set("taskID", Value.fromBigInt(value));
+  }
+
   get taskFunds(): BigInt | null {
     let value = this.get("taskFunds");
     if (value === null || value.kind == ValueKind.NULL) {
@@ -229,23 +238,6 @@ export class task extends Entity {
     }
   }
 
-  get taskRaider(): Bytes | null {
-    let value = this.get("taskRaider");
-    if (value === null || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toBytes();
-    }
-  }
-
-  set taskRaider(value: Bytes | null) {
-    if (value === null) {
-      this.unset("taskRaider");
-    } else {
-      this.set("taskRaider", Value.fromBytes(value as Bytes));
-    }
-  }
-
   get taskReviewed(): Bytes | null {
     let value = this.get("taskReviewed");
     if (value === null || value.kind == ValueKind.NULL) {
@@ -270,5 +262,80 @@ export class task extends Entity {
 
   set taskClosed(value: boolean) {
     this.set("taskClosed", Value.fromBoolean(value));
+  }
+
+  get taskRequest(): Array<string> | null {
+    let value = this.get("taskRequest");
+    if (value === null || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set taskRequest(value: Array<string> | null) {
+    if (value === null) {
+      this.unset("taskRequest");
+    } else {
+      this.set("taskRequest", Value.fromStringArray(value as Array<string>));
+    }
+  }
+}
+
+export class request extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save request entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save request entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("request", id.toString(), this);
+  }
+
+  static load(id: string): request | null {
+    return store.get("request", id) as request | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get taskID(): string {
+    let value = this.get("taskID");
+    return value.toString();
+  }
+
+  set taskID(value: string) {
+    this.set("taskID", Value.fromString(value));
+  }
+
+  get requestID(): string {
+    let value = this.get("requestID");
+    return value.toString();
+  }
+
+  set requestID(value: string) {
+    this.set("requestID", Value.fromString(value));
+  }
+
+  get raiderAddress(): string {
+    let value = this.get("raiderAddress");
+    return value.toString();
+  }
+
+  set raiderAddress(value: string) {
+    this.set("raiderAddress", Value.fromString(value));
   }
 }

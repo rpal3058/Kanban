@@ -177,9 +177,11 @@ export default function Home() {
                         <p>{"Title :   " + boardList.title}</p>
                         <p>{"Details :" + boardList.details}</p>
                         <p>{"PM :   " + boardList.pm}</p>
+                        <p>{"FUNDS :   " + boardList.funds/1000000000000000000 + " Eth"}</p>
                         <p>{"CREATER :   " + boardList.creator}</p>
+                        
                         <button
-                          className="bg-blue-500 hover:bg-blue-700 text-white font-bold my-1 py-1 px-1 rounded "
+                          className="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-1 px-1 rounded "
                           onClick={() => {
                             router.push("/" + boardList.id);
                           }}

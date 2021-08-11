@@ -1,7 +1,8 @@
 import client from ".";
 import {
     boardDetails,
-    taskDetails
+    taskDetails,
+    requestDetails
 } from "./queries";
 
 export const getBoardList = async () => {
@@ -23,3 +24,11 @@ export const getTaskList = async () => {
 };    
 
 
+export const getRequestList = async () => {
+    // Collect fund details
+    let request = await client.request(requestDetails);
+    request = request.requests  ;
+  
+    // Return funds
+    return request
+};    

@@ -1,6 +1,6 @@
 import { BigInt, DataSourceContext } from "@graphprotocol/graph-ts";
 import { kanbanCreated } from "../generated/KanbanFactory/KanbanFactory" //ts created based on the YAML files
- import { Kanban } from "../generated/templates" //ts created based on the YAML files
+import { Kanban } from "../generated/templates" //ts created based on the YAML files
 import { kanbanBoard } from "../generated/schema"
 import { log } from "@graphprotocol/graph-ts";
 

@@ -1,6 +1,6 @@
 import { GraphQLClient } from "graphql-request"; // GraphQL request client
 
-let url = "https://api.studio.thegraph.com/query/4554/kanban/v2"; 
+let url = "https://api.studio.thegraph.com/query/4554/kanban/v36"; 
 
 //const API_KEY = process.env.NEXT_PUBLIC_GRAPH_API
 //When the graph is live

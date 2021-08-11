@@ -20,12 +20,26 @@ export const boardDetails = gql`
 // Collect information Task 
 export const taskDetails = gql`
 {
-  tasks(first: 5) {
+  tasks {
     id
     boardID {
       id
     }
+    taskID
     taskFunds
+    taskDetails
     taskTitle
   }
+}`;
+
+export const requestDetails = gql`
+{
+  requests{
+    id
+    taskID{
+      id
+    }
+    requestID 
+    raiderAddress
+  } 
 }`;
