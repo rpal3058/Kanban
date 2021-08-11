@@ -137,3 +137,10 @@
            })
          }
    </div>      
+
+
+<div className="text-sm mt-2 px-2">
+<h2>{"Request ID : " + requestList.requestID}</h2>
+<p>{"Raider : " + requestList.raiderAddress}</p>
+<br></br>
+</div>
