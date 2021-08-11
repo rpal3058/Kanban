@@ -6,7 +6,7 @@ dataSources:
     name: KanbanFactory
     network: rinkeby
     source:
-      address: "0xFC686dbfE3a120fD38Ac1D0228C53d02e7a0A216"
+      address: "0x179612635c4FD3781483F2E6cF93a7f81deE5CAc"
       abi: KanbanFactory
       startBlock: 9020000
     mapping:
@@ -33,12 +33,15 @@ templates:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
+        - taskRequested
         - taskSubmitted
         - contractPaid
       abis:
         - name: Kanban
           file: Kanban\abis\Kanban.json
       eventHandlers:
+        - event: taskRequested(uint256,address,uint256)
+          handler: handleTaskRequested
         - event: taskSubmitted(uint256,uint256,string,string)
           handler: handleTaskSubmitted
         - event: contractPaid(address,uint256)

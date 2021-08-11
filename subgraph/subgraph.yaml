@@ -6,7 +6,7 @@ dataSources:
     name: KanbanFactory
     network: rinkeby
     source:
-      address: "0xFC686dbfE3a120fD38Ac1D0228C53d02e7a0A216"
+      address: "0x179612635c4FD3781483F2E6cF93a7f81deE5CAc"
       abi: KanbanFactory
       startBlock: 9020000
     mapping:
@@ -38,6 +38,7 @@ templates:
         # - taskCompleted
         # - taskForReviewed
         # - taskReviewRevoke
+        - taskRequested
         - taskSubmitted
         - contractPaid
       abis:
@@ -46,8 +47,8 @@ templates:
       eventHandlers:
         # - event: assigned(uint256,address)
         #   handler: handleAssigned
-        # - event: taskRequested(uint256,address,uint256)
-        #   handler: handleTaskRequested
+        - event: taskRequested(uint256,address,uint256)
+          handler: handleTaskRequested
         # - event: taskCompleted(uint256,uint256)
         #   handler: handleTaskCompleted
         # - event: taskForReviewed(uint256)
