@@ -369,16 +369,26 @@ export default function Home() {
                                       {
                                         requestList.map((requestList)=>
                                         {
-                                            if(requestList.taskID.id==taskList.id){
-                                              return(   
-                                                <div className="text-sm mt-2 px-2">
-                                                    <div>
+                                          if(requestList.taskID.id==taskList.id){
+                                            return(   
+                                              <label className="text-gray-700">
+                                                   <input 
+                                                    className="text-sm mt-2 px-2" 
+                                                    id="title" 
+                                                    type="radio" 
+                                                    placeholder="Title"
+                                                    onChange = {(e) => this.handleChange(e)}
+                                                      
+                                                   />
+                                                   <span className="ml-1">
+                                                   <div className="text-sm mt-2 px-2">
                                                     <h2>{"Request ID : " + requestList.requestID}</h2>
                                                     <p>{"Raider : " + requestList.raiderAddress}</p>
                                                     <br></br>
                                                     </div>
-                                                  </div>
-                                              )
+                                                   </span>
+                                              </label>
+                                            )
                                           }
                                         })
                                       }
