@@ -122,6 +122,7 @@ interface KanbanInterface extends ethers.utils.Interface {
   events: {
     "assigned(uint256,address)": EventFragment;
     "contractPaid(address,uint256)": EventFragment;
+    "taskApprovedBy(uint256,bool,bool)": EventFragment;
     "taskCompleted(uint256,uint256)": EventFragment;
     "taskForReviewed(uint256)": EventFragment;
     "taskRequested(uint256,address,uint256)": EventFragment;
@@ -131,6 +132,7 @@ interface KanbanInterface extends ethers.utils.Interface {
 
   getEvent(nameOrSignatureOrTopic: "assigned"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "contractPaid"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "taskApprovedBy"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "taskCompleted"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "taskForReviewed"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "taskRequested"): EventFragment;
@@ -401,6 +403,15 @@ export class Kanban extends BaseContract {
     ): TypedEventFilter<
       [string, BigNumber],
       { funder: string; fundAmount: BigNumber }
+    >;
+
+    taskApprovedBy(
+      task_id?: null,
+      funderApproved?: null,
+      pmApproved?: null
+    ): TypedEventFilter<
+      [BigNumber, boolean, boolean],
+      { task_id: BigNumber; funderApproved: boolean; pmApproved: boolean }
     >;
 
     taskCompleted(

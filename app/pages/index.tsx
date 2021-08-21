@@ -31,7 +31,6 @@ export default function Home() {
       if(kanbanFactory!=undefined)//this is to check if the metamask is connected or not
       {   
         const boardDetails = await getBoardList()
-        console.log(boardDetails)
 
         if(boardDetails!=undefined) //this is to check if the details of the board selected has been propoerly loaded
         {
@@ -174,11 +173,12 @@ export default function Home() {
                   <div className="bg-white p-2 m-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
                     <div className="text-sm mt-2 px-2">
                       <div>
-                        <p>{"Title :   " + boardList.title}</p>
-                        <p>{"Details :" + boardList.details}</p>
-                        <p>{"PM :   " + boardList.pm}</p>
-                        <p>{"FUNDS :   " + boardList.funds/1000000000000000000 + " Eth"}</p>
-                        <p>{"CREATER :   " + boardList.creator}</p>
+                        <p>{"TITLE :   " + boardList.title}</p>
+                        <p>{"DETAILS :  " + boardList.details}</p>
+                        <p>{"PM :  " + boardList.pm}</p>
+                        <p>{"FUNDS :  " + boardList.funds/1000000000000000000 + " Eth"}</p>
+                        <p>{"FUNDER :  " + boardList.funder}</p>
+                        <p>{"CREATER :  " + boardList.creator}</p>
                         
                         <button
                           className="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-1 px-1 rounded "

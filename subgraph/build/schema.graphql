@@ -8,11 +8,12 @@ type kanbanBoard @entity {
   title: String!
   details: String 
   funds: BigInt
-  # funder: Bytes
+  funder: Bytes
 }
 
 type task @entity {
   id: ID!  
+  #Remember when creating the mapping the boardID should be exactly same as the id of the kanbanBoard entity
   boardID: kanbanBoard!
   # We are creating taskID to make it easier for us in the front end to work with the task (particualrly when raiders are claiing tasks)
   taskID: BigInt!    
@@ -20,15 +21,17 @@ type task @entity {
   taskTitle: String!
   taskDetails: String
   taskAssigned: Bytes
-  taskReviewed: Bytes
-  taskClosed: Boolean
+  taskReviewed: Boolean
+  # funderApproved: Boolean
+  # # pmApproved: Boolean
+   taskClosed: Boolean
   #Since task request would be an array of item so we need to create another entity
   taskRequest: [request!] @derivedFrom(field: "taskID") 
 }
 
 type request @entity {
   id: ID!  
-  #Remember when creating the mapping the taskID should be exactly same as the  
+  #Remember when creating the mapping the taskID should be exactly same as the id of the task entity
   taskID: task!
   requestID: String! 
   raiderAddress: String! 

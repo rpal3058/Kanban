@@ -13,6 +13,7 @@ contract Kanban is ReentrancyGuard{
     event assigned(uint  task_id,address raiderApproved);
     event taskForReviewed(uint task_id);
     event taskReviewRevoke(uint task_id);
+    event taskApprovedBy(uint task_id, bool funderApproved, bool pmApproved);
     event taskCompleted(uint task_id, uint fundReleased);
     event contractPaid(address funder, uint fundAmount);
 
@@ -129,6 +130,8 @@ contract Kanban is ReentrancyGuard{
         require(taskLog[_taskid].reviewed==true,"The task has not been sent for review");
         require(pm==msg.sender || funder == msg.sender,"You are not the approver");
         taskLog[_taskid].approvals[msg.sender]= true;
+        emit taskApprovedBy(_taskid, taskLog[_taskid].approvals[funder], taskLog[_taskid].approvals[pm]);
+
 
         //if both M and funder has approved then the task will be marked complete
         if(taskLog[_taskid].approvals[funder]== true && taskLog[_taskid].approvals[pm]== true){

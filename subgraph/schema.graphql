@@ -8,7 +8,7 @@ type kanbanBoard @entity {
   title: String!
   details: String 
   funds: BigInt
-  # funder: Bytes
+  funder: Bytes
 }
 
 type task @entity {
@@ -21,8 +21,10 @@ type task @entity {
   taskTitle: String!
   taskDetails: String
   taskAssigned: Bytes
-  taskReviewed: Bytes
-  taskClosed: Boolean
+  taskReviewed: Boolean
+  # funderApproved: Boolean
+  # # pmApproved: Boolean
+   taskClosed: Boolean
   #Since task request would be an array of item so we need to create another entity
   taskRequest: [request!] @derivedFrom(field: "taskID") 
 }

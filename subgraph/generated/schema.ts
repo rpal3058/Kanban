@@ -128,6 +128,23 @@ export class kanbanBoard extends Entity {
       this.set("funds", Value.fromBigInt(value as BigInt));
     }
   }
+
+  get funder(): Bytes | null {
+    let value = this.get("funder");
+    if (value === null || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBytes();
+    }
+  }
+
+  set funder(value: Bytes | null) {
+    if (value === null) {
+      this.unset("funder");
+    } else {
+      this.set("funder", Value.fromBytes(value as Bytes));
+    }
+  }
 }
 
 export class task extends Entity {
@@ -238,21 +255,13 @@ export class task extends Entity {
     }
   }
 
-  get taskReviewed(): Bytes | null {
+  get taskReviewed(): boolean {
     let value = this.get("taskReviewed");
-    if (value === null || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toBytes();
-    }
+    return value.toBoolean();
   }
 
-  set taskReviewed(value: Bytes | null) {
-    if (value === null) {
-      this.unset("taskReviewed");
-    } else {
-      this.set("taskReviewed", Value.fromBytes(value as Bytes));
-    }
+  set taskReviewed(value: boolean) {
+    this.set("taskReviewed", Value.fromBoolean(value));
   }
 
   get taskClosed(): boolean {

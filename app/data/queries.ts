@@ -14,6 +14,7 @@ export const boardDetails = gql`
     title
     details
     funds
+    funder
   }
 }`;
 
@@ -29,6 +30,9 @@ export const taskDetails = gql`
     taskFunds
     taskDetails
     taskTitle
+    taskAssigned
+    taskReviewed
+    taskClosed  
   }
 }`;
 
