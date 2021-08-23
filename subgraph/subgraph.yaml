@@ -41,7 +41,7 @@ templates:
         - taskRequested
         - taskSubmitted
         - contractPaid
-        # - taskApprovedBy
+        - taskApprovedBy
       abis:
         - name: Kanban
           file: ./abis/Kanban.json
@@ -60,6 +60,6 @@ templates:
           handler: handleTaskSubmitted
         - event: contractPaid(address,uint256)
           handler: handleContractPaid
-        # - event: taskApprovedBy(uint256, bool, bool)
-        #   handler: handleTaskApprovedBy  
+        - event: taskApprovedBy(uint256,bool,bool)
+          handler: handleTaskApprovedBy  
       file: ./src/kanbanMapping.ts

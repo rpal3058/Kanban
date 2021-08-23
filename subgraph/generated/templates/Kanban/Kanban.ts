@@ -54,6 +54,32 @@ export class contractPaid__Params {
   }
 }
 
+export class taskApprovedBy extends ethereum.Event {
+  get params(): taskApprovedBy__Params {
+    return new taskApprovedBy__Params(this);
+  }
+}
+
+export class taskApprovedBy__Params {
+  _event: taskApprovedBy;
+
+  constructor(event: taskApprovedBy) {
+    this._event = event;
+  }
+
+  get task_id(): BigInt {
+    return this._event.parameters[0].value.toBigInt();
+  }
+
+  get funderApproved(): boolean {
+    return this._event.parameters[1].value.toBoolean();
+  }
+
+  get pmApproved(): boolean {
+    return this._event.parameters[2].value.toBoolean();
+  }
+}
+
 export class taskCompleted extends ethereum.Event {
   get params(): taskCompleted__Params {
     return new taskCompleted__Params(this);

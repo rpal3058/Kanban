@@ -32,7 +32,9 @@ export const taskDetails = gql`
     taskTitle
     taskAssigned
     taskReviewed
-    taskClosed  
+    taskClosed
+    funderApproved
+    pmApproved
   }
 }`;
 

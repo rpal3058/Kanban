@@ -264,6 +264,24 @@ export class task extends Entity {
     this.set("taskReviewed", Value.fromBoolean(value));
   }
 
+  get funderApproved(): boolean {
+    let value = this.get("funderApproved");
+    return value.toBoolean();
+  }
+
+  set funderApproved(value: boolean) {
+    this.set("funderApproved", Value.fromBoolean(value));
+  }
+
+  get pmApproved(): boolean {
+    let value = this.get("pmApproved");
+    return value.toBoolean();
+  }
+
+  set pmApproved(value: boolean) {
+    this.set("pmApproved", Value.fromBoolean(value));
+  }
+
   get taskClosed(): boolean {
     let value = this.get("taskClosed");
     return value.toBoolean();

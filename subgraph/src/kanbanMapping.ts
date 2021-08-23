@@ -8,7 +8,7 @@ import {
     taskReviewRevoke,
     taskSubmitted,
     contractPaid,
-    // taskApprovedBy
+    taskApprovedBy
 } from  "../generated/templates/Kanban/Kanban" 
 import { kanbanBoard, task,request } from "../generated/schema"
 
@@ -88,12 +88,12 @@ export function handleTaskCompleted(event: taskCompleted): void {
   entity.save()
 }
 
-// export function handleTaskApprovedBy(event: taskApprovedBy): void {
-//   let entity =  task.load(kanbanId + event.params.task_id.toHexString() )
-//   if (entity == null) {
-//     entity = new task(kanbanId + event.params.task_id.toHexString() )
-//   }
-//   entity.funderApproved= event.params.funderApproved
-//   entity.pmApproved= event.params.pmApproved
-//   entity.save()
-// }
+export function handleTaskApprovedBy(event: taskApprovedBy): void {
+  let entity =  task.load(kanbanId + event.params.task_id.toHexString() )
+  if (entity == null) {
+    entity = new task(kanbanId + event.params.task_id.toHexString() )
+  }
+  entity.funderApproved= event.params.funderApproved
+  entity.pmApproved= event.params.pmApproved
+  entity.save()
+}

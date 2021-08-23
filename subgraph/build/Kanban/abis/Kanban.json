@@ -48,6 +48,31 @@
       },
       {
         "indexed": false,
+        "internalType": "bool",
+        "name": "funderApproved",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "pmApproved",
+        "type": "bool"
+      }
+    ],
+    "name": "taskApprovedBy",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "task_id",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
         "internalType": "uint256",
         "name": "fundReleased",
         "type": "uint256"

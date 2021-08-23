@@ -456,8 +456,8 @@ const {kanban, kanbanFactory} = web3.useContainer()
                           <p>{"Details : " + taskList.taskDetails}</p>
                           <p>{"Funds Allocated : " + taskList.taskFunds/1000000000000000000 + " Eth"}</p>
                           <p>{"Raider Assigned : " + taskList.taskAssigned.slice(0,5)+"..."+taskList.taskAssigned.slice(taskList.taskAssigned.length-5)}</p>
-                          <p>{"PM Approved : "}</p>
-                          <p>{"Funder Approved : "}</p>
+                          <p>{"PM Approved : " + taskList.pmApproved}</p>
+                          <p>{"Funder Approved : " + taskList.funderApproved}</p>
                         </div>
                         <button
                           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded my-1"

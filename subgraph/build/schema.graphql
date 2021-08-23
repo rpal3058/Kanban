@@ -22,8 +22,8 @@ type task @entity {
   taskDetails: String
   taskAssigned: Bytes
   taskReviewed: Boolean
-  # funderApproved: Boolean
-  # # pmApproved: Boolean
+  funderApproved: Boolean
+  pmApproved: Boolean
    taskClosed: Boolean
   #Since task request would be an array of item so we need to create another entity
   taskRequest: [request!] @derivedFrom(field: "taskID") 
